@@ -4,6 +4,9 @@ import java.util.List;
 
 public class Yatzy {
 
+    public static final int YATZY = 50;
+    public static final int ZERO = 0;
+
     public static int chance(Yatzy yatzy)
     {
         return yatzy.dices.stream().reduce(0, Integer::sum);
@@ -16,8 +19,8 @@ public class Yatzy {
             counts[die-1]++;
         for (int i = 0; i != 6; i++)
             if (counts[i] == 5)
-                return 50;
-        return 0;
+                return YATZY;
+        return ZERO;
     }
 
     public static int ones(int d1, int d2, int d3, int d4, int d5) {
