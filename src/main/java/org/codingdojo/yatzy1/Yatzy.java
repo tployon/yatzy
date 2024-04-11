@@ -30,6 +30,10 @@ public class Yatzy {
         this.dices = dices;
     }
 
+    private List<Integer> atLeast(int atLeastFrequency) {
+        return frequencies().entrySet().stream().filter(it -> it.getValue() == atLeastFrequency).map(Map.Entry::getKey).toList();
+    }
+
     private Map<Integer, Long> frequencies() {
         return dices.stream().collect(groupingBy(identity(), counting()));
     }
@@ -105,18 +109,12 @@ public class Yatzy {
             .reduce(0, Integer::sum);
     }
 
-    public static int four_of_a_kind(int _1, int _2, int d3, int d4, int d5) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[_1 - 1]++;
-        tallies[_2 - 1]++;
-        tallies[d3 - 1]++;
-        tallies[d4 - 1]++;
-        tallies[d5 - 1]++;
-        for (int i = 0; i < 6; i++)
-            if (tallies[i] >= 4)
-                return (i + 1) * 4;
-        return 0;
+    public static int four_of_a_kind(Yatzy yatzy) {
+        return yatzy.atLeast(4)
+            .stream()
+            .findFirst()
+            .map(it -> it * 4)
+            .orElse(ZERO);
     }
 
     public static int three_of_a_kind(int d1, int d2, int d3, int d4, int d5) {
