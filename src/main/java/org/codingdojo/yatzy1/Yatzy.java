@@ -1,6 +1,11 @@
 package org.codingdojo.yatzy1;
 
 import java.util.List;
+import java.util.Map;
+
+import static java.util.function.Function.identity;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 public class Yatzy {
 
@@ -14,13 +19,12 @@ public class Yatzy {
 
     public static int yatzy(Yatzy yatzy)
     {
-        int[] counts = new int[6];
-        for (int die : yatzy.dices)
-            counts[die-1]++;
-        for (int i = 0; i != 6; i++)
-            if (counts[i] == 5)
-                return YATZY;
-        return ZERO;
+        Map<Integer, Long> frequencies = yatzy.dices.stream().collect(groupingBy(identity(), counting()));
+        return frequencies.entrySet().stream()
+            .filter(it -> it.getValue() == 5)
+            .map(it -> Yatzy.YATZY)
+            .findFirst()
+            .orElse(Yatzy.ZERO);
     }
 
     public static int ones(int d1, int d2, int d3, int d4, int d5) {
