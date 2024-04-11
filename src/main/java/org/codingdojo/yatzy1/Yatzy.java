@@ -12,15 +12,6 @@ public class Yatzy {
     public static final int YATZY = 50;
     public static final int ZERO = 0;
 
-    public static int yatzy(Yatzy yatzy) {
-        Map<Integer, Long> frequencies = yatzy.frequencies();
-        return frequencies.entrySet().stream()
-            .filter(it -> it.getValue() == 5)
-            .map(it -> Yatzy.YATZY)
-            .findFirst()
-            .orElse(Yatzy.ZERO);
-    }
-
     private static Integer scoreNumber(Yatzy yatzy, int diceValue) {
         return yatzy
             .filterDiceValue(diceValue)
@@ -74,6 +65,15 @@ public class Yatzy {
 
     public int chance() {
         return sum();
+    }
+
+    public int yatzy() {
+        Map<Integer, Long> frequencies = frequencies();
+        return frequencies.entrySet().stream()
+            .filter(it -> it.getValue() == 5)
+            .map(it -> Yatzy.YATZY)
+            .findFirst()
+            .orElse(Yatzy.ZERO);
     }
 
     public static int score_pair(int d1, int d2, int d3, int d4, int d5) {
