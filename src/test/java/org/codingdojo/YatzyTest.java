@@ -13,8 +13,8 @@ public class YatzyTest {
 
     @Test
     public void chance_scores_sum_of_all_dice() {
-        assertEquals(15, Yatzy.chance(2,3,4,5,1));
-        assertEquals(16, Yatzy.chance(3,3,4,5,1));
+        assertEquals(15, Yatzy.chance(new Yatzy(List.of(2, 3, 4, 5, 1))));
+        assertEquals(16, Yatzy.chance(new Yatzy(List.of(3, 3, 4, 5, 1))));
     }
 
     @Test public void yatzy_scores_50() {

@@ -4,9 +4,8 @@ import java.util.List;
 
 public class Yatzy {
 
-    public static int chance(int d1, int d2, int d3, int d4, int d5)
+    public static int chance(Yatzy yatzy)
     {
-        Yatzy yatzy = new Yatzy(List.of(d1, d2, d3, d4, d5));
         return yatzy.dices.stream().reduce(0, Integer::sum);
     }
 
