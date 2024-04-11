@@ -13,11 +13,7 @@ public class Yatzy {
     public static final int ZERO = 0;
 
     public static int chance(Yatzy yatzy) {
-        return sum(yatzy);
-    }
-
-    private static Integer sum(Yatzy yatzy) {
-        return yatzy.dices.stream().reduce(0, Integer::sum);
+        return yatzy.sum();
     }
 
     public static int yatzy(Yatzy yatzy) {
@@ -52,6 +48,10 @@ public class Yatzy {
 
     public Yatzy(List<Integer> dices) {
         this.dices = dices;
+    }
+
+    private Integer sum() {
+        return dices.stream().reduce(0, Integer::sum);
     }
 
     private List<Integer> filterDiceValue(int diceValue) {
