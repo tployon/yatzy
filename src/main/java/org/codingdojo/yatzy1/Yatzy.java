@@ -93,8 +93,8 @@ public class Yatzy {
             .orElse(ZERO);
     }
 
-    public static int two_pair(Yatzy yatzy) {
-        List<Map.Entry<Integer, Long>> pairs = yatzy.pairs();
+    public int two_pair() {
+        List<Map.Entry<Integer, Long>> pairs = pairs();
         if (pairs.size() !=2)
             return ZERO;
 
