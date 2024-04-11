@@ -44,6 +44,12 @@ public class Yatzy {
             .collect(toList());
     }
 
+    public List<Map.Entry<Integer, Long>> pairs() {
+        return frequencies().entrySet().stream()
+            .filter(it -> it.getValue() >= 2)
+            .collect(toList());
+    }
+
     public int ones() {
         return scoreNumber(this, 1);
     }
@@ -69,41 +75,34 @@ public class Yatzy {
     }
 
     public int yatzy() {
-        Map<Integer, Long> frequencies = frequencies();
-        return frequencies.entrySet().stream()
+        return frequencies()
+            .entrySet()
+            .stream()
             .filter(it -> it.getValue() == 5)
             .map(it -> Yatzy.YATZY)
             .findFirst()
             .orElse(Yatzy.ZERO);
     }
 
-    public static int score_pair(Yatzy yatzy) {
-        return yatzy.frequencies().entrySet().stream()
-            .filter(it -> it.getValue() == 2)
+    public int score_pair() {
+        return pairs()
+            .stream()
             .map(Map.Entry::getKey)
             .max(naturalOrder())
             .map(it -> it * 2)
             .orElse(ZERO);
     }
 
-    public static int two_pair(int d1, int d2, int d3, int d4, int d5) {
-        int[] counts = new int[6];
-        counts[d1 - 1]++;
-        counts[d2 - 1]++;
-        counts[d3 - 1]++;
-        counts[d4 - 1]++;
-        counts[d5 - 1]++;
-        int n = 0;
-        int score = 0;
-        for (int i = 0; i < 6; i += 1)
-            if (counts[6 - i - 1] >= 2) {
-                n++;
-                score += (6 - i);
-            }
-        if (n == 2)
-            return score * 2;
-        else
-            return 0;
+    public static int two_pair(Yatzy yatzy) {
+        List<Map.Entry<Integer, Long>> pairs = yatzy.pairs();
+        if (pairs.size() !=2)
+            return ZERO;
+
+        return pairs
+            .stream()
+            .map(Map.Entry::getKey)
+            .map(it -> it * 2)
+            .reduce(0, Integer::sum);
     }
 
     public static int four_of_a_kind(int _1, int _2, int d3, int d4, int d5) {
