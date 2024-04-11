@@ -25,10 +25,6 @@ public class Yatzy {
             .orElse(Yatzy.ZERO);
     }
 
-    public static int ones(Yatzy yatzy) {
-        return scoreNumber(yatzy, 1);
-    }
-
     private static Integer scoreNumber(Yatzy yatzy, int diceValue) {
         return yatzy
             .filterDiceValue(diceValue)
@@ -62,6 +58,10 @@ public class Yatzy {
         return dices.stream()
             .filter(it -> Objects.equals(it, diceValue))
             .collect(toList());
+    }
+
+    public int ones() {
+        return scoreNumber(this, 1);
     }
 
     public int fours() {
