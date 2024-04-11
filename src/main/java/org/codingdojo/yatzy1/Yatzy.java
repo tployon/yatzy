@@ -2,6 +2,7 @@ package org.codingdojo.yatzy1;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.counting;
@@ -27,16 +28,8 @@ public class Yatzy {
             .orElse(Yatzy.ZERO);
     }
 
-    public static int ones(int d1, int d2, int d3, int d4, int d5) {
-        int sum = 0;
-        if (d1 == 1) sum++;
-        if (d2 == 1) sum++;
-        if (d3 == 1) sum++;
-        if (d4 == 1) sum++;
-        if (d5 == 1)
-            sum++;
-
-        return sum;
+    public static int ones(Yatzy yatzy) {
+        return yatzy.dices.stream().filter(it -> Objects.equals(it, 1)).reduce(0, Integer::sum);
     }
 
     public static int twos(int d1, int d2, int d3, int d4, int d5) {
