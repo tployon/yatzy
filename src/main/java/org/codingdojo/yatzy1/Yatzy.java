@@ -12,10 +12,6 @@ public class Yatzy {
     public static final int YATZY = 50;
     public static final int ZERO = 0;
 
-    public static int chance(Yatzy yatzy) {
-        return yatzy.sum();
-    }
-
     public static int yatzy(Yatzy yatzy) {
         Map<Integer, Long> frequencies = yatzy.frequencies();
         return frequencies.entrySet().stream()
@@ -74,6 +70,10 @@ public class Yatzy {
 
     public int sixes() {
         return scoreNumber(this, 6);
+    }
+
+    public int chance() {
+        return sum();
     }
 
     public static int score_pair(int d1, int d2, int d3, int d4, int d5) {
