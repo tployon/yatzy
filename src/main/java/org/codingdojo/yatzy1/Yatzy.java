@@ -12,10 +12,10 @@ public class Yatzy {
         return yatzy.dices.stream().reduce(0, Integer::sum);
     }
 
-    public static int yatzy(List<Integer> dices)
+    public static int yatzy(Yatzy yatzy)
     {
         int[] counts = new int[6];
-        for (int die : dices)
+        for (int die : yatzy.dices)
             counts[die-1]++;
         for (int i = 0; i != 6; i++)
             if (counts[i] == 5)

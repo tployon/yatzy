@@ -21,13 +21,13 @@ public class YatzyTest {
     @Test public void yatzy_scores_50() {
         final Integer[] integers = new Integer[]{4, 4, 4, 4, 4};
         final List<Integer> list = Arrays.asList(integers);
-        assertEquals(50, Yatzy.yatzy(list));
+        assertEquals(50, Yatzy.yatzy(new Yatzy(list)));
         final Integer[] integers1 = new Integer[]{6, 6, 6, 6, 6};
         final List<Integer> list1 = Arrays.asList(integers1);
-        assertEquals(50, Yatzy.yatzy(list1));
+        assertEquals(50, Yatzy.yatzy(new Yatzy(list1)));
         final Integer[] integers2 = new Integer[]{6, 6, 6, 6, 3};
         final List<Integer> list2 = Arrays.asList(integers2);
-        assertEquals(0, Yatzy.yatzy(list2));
+        assertEquals(0, Yatzy.yatzy(new Yatzy(list2)));
     }
 
     @Test public void test_1s() {
