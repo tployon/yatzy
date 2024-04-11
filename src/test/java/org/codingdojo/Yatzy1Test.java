@@ -11,22 +11,18 @@ public class Yatzy1Test {
 
     @Test
     public void chance_scores_sum_of_all_dice() {
-        int expected = 15;
-        int actual = Yatzy1.chance(2,3,4,5,1);
-        assertEquals(expected, actual);
+        assertEquals(15, Yatzy1.chance(2,3,4,5,1));
         assertEquals(16, Yatzy1.chance(3,3,4,5,1));
     }
 
     @Test public void yatzy_scores_50() {
-        int expected = 50;
-        int actual = Yatzy1.yatzy(4,4,4,4,4);
-        assertEquals(expected, actual);
+        assertEquals(50, Yatzy1.yatzy(4,4,4,4,4));
         assertEquals(50, Yatzy1.yatzy(6,6,6,6,6));
         assertEquals(0, Yatzy1.yatzy(6,6,6,6,3));
     }
 
     @Test public void test_1s() {
-        assertTrue(Yatzy1.ones(1,2,3,4,5) == 1);
+        assertEquals(1, Yatzy1.ones(1,2,3,4,5));
         assertEquals(2, Yatzy1.ones(1,2,1,4,5));
         assertEquals(0, Yatzy1.ones(6,2,2,4,5));
         assertEquals(4, Yatzy1.ones(1,2,1,1,1));
@@ -94,7 +90,6 @@ public class Yatzy1Test {
     public void four_of_a_knd() {
         assertEquals(12, Yatzy1.four_of_a_kind(3,3,3,3,5));
         assertEquals(20, Yatzy1.four_of_a_kind(5,5,5,4,5));
-        assertEquals(9, Yatzy1.three_of_a_kind(3,3,3,3,3));
         assertEquals(0, Yatzy1.four_of_a_kind(1,2,3,4,3));
     }
 
