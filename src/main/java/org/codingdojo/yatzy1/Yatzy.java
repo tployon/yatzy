@@ -32,10 +32,6 @@ public class Yatzy {
             .reduce(0, Integer::sum);
     }
 
-    public static int twos(Yatzy yatzy) {
-        return scoreNumber(yatzy, 2);
-    }
-
     public static int threes(Yatzy yatzy) {
         return scoreNumber(yatzy, 3);
     }
@@ -62,6 +58,10 @@ public class Yatzy {
 
     public int ones() {
         return scoreNumber(this, 1);
+    }
+
+    public int twos() {
+        return scoreNumber(this, 2);
     }
 
     public int fours() {
