@@ -17,7 +17,7 @@ public class Yatzy {
     }
 
     public static int yatzy(Yatzy yatzy) {
-        Map<Integer, Long> frequencies = yatzy.dices.stream().collect(groupingBy(identity(), counting()));
+        Map<Integer, Long> frequencies = yatzy.frequencies();
         return frequencies.entrySet().stream()
             .filter(it -> it.getValue() == 5)
             .map(it -> Yatzy.YATZY)
@@ -50,6 +50,10 @@ public class Yatzy {
         this.dices = dices;
     }
 
+    private Map<Integer, Long> frequencies() {
+        return dices.stream().collect(groupingBy(identity(), counting()));
+    }
+
     private Integer sum() {
         return dices.stream().reduce(0, Integer::sum);
     }
@@ -61,14 +65,7 @@ public class Yatzy {
     }
 
     public int fours() {
-        int sum;
-        sum = 0;
-        for (int at = 0; at != 5; at++) {
-            if (dices.get(at) == 4) {
-                sum += 4;
-            }
-        }
-        return sum;
+        return scoreNumber(this, 4);
     }
 
     public int fives() {
