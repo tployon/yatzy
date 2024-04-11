@@ -13,6 +13,10 @@ public class Yatzy {
     public static final int ZERO = 0;
 
     public static int chance(Yatzy yatzy) {
+        return sum(yatzy);
+    }
+
+    private static Integer sum(Yatzy yatzy) {
         return yatzy.dices.stream().reduce(0, Integer::sum);
     }
 
