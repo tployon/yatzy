@@ -71,12 +71,14 @@ public class Yatzy1Test {
         assertEquals(6, Yatzy1.score_pair(3,4,3,5,6));
         assertEquals(10, Yatzy1.score_pair(5,3,3,3,5));
         assertEquals(12, Yatzy1.score_pair(5,3,6,6,5));
+        assertEquals(0, Yatzy1.score_pair(5,3,1,6,2));
     }
 
     @Test
     public void two_Pair() {
         assertEquals(16, Yatzy1.two_pair(3,3,5,4,5));
         assertEquals(16, Yatzy1.two_pair(3,3,5,5,5));
+        assertEquals(0, Yatzy1.two_pair(3,3,1,2,5));
     }
 
     @Test
@@ -85,6 +87,7 @@ public class Yatzy1Test {
         assertEquals(9, Yatzy1.three_of_a_kind(3,3,3,4,5));
         assertEquals(15, Yatzy1.three_of_a_kind(5,3,5,4,5));
         assertEquals(9, Yatzy1.three_of_a_kind(3,3,3,3,5));
+        assertEquals(0, Yatzy1.three_of_a_kind(1,2,3,3,5));
     }
 
     @Test
@@ -92,6 +95,7 @@ public class Yatzy1Test {
         assertEquals(12, Yatzy1.four_of_a_kind(3,3,3,3,5));
         assertEquals(20, Yatzy1.four_of_a_kind(5,5,5,4,5));
         assertEquals(9, Yatzy1.three_of_a_kind(3,3,3,3,3));
+        assertEquals(0, Yatzy1.four_of_a_kind(1,2,3,4,3));
     }
 
     @Test
