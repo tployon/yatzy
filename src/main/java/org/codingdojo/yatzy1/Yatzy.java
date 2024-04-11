@@ -31,7 +31,7 @@ public class Yatzy {
     }
 
     private List<Integer> atLeast(int atLeastFrequency) {
-        return frequencies().entrySet().stream().filter(it -> it.getValue() == atLeastFrequency).map(Map.Entry::getKey).toList();
+        return frequencies().entrySet().stream().filter(it -> it.getValue() >= atLeastFrequency).map(Map.Entry::getKey).toList();
     }
 
     private Map<Integer, Long> frequencies() {
@@ -109,26 +109,20 @@ public class Yatzy {
             .reduce(0, Integer::sum);
     }
 
-    public static int four_of_a_kind(Yatzy yatzy) {
-        return yatzy.atLeast(4)
-            .stream()
-            .findFirst()
-            .map(it -> it * 4)
-            .orElse(ZERO);
+    public int three_of_a_kind() {
+        return someOfAKind(3);
     }
 
-    public static int three_of_a_kind(int d1, int d2, int d3, int d4, int d5) {
-        int[] t;
-        t = new int[6];
-        t[d1 - 1]++;
-        t[d2 - 1]++;
-        t[d3 - 1]++;
-        t[d4 - 1]++;
-        t[d5 - 1]++;
-        for (int i = 0; i < 6; i++)
-            if (t[i] >= 3)
-                return (i + 1) * 3;
-        return 0;
+    public int four_of_a_kind() {
+        return someOfAKind(4);
+    }
+
+    private Integer someOfAKind(int atLeastFrequency) {
+        return atLeast(atLeastFrequency)
+            .stream()
+            .findFirst()
+            .map(it -> it * atLeastFrequency)
+            .orElse(ZERO);
     }
 
     public static int smallStraight(int d1, int d2, int d3, int d4, int d5) {
