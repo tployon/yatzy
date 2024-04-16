@@ -149,12 +149,13 @@ public class Yatzy {
         return sum();
     }
 
-    public static int fullHouse(Yatzy yatzy) {
-        Map<Integer, Long> frequencies = yatzy.frequencies();
+    public int fullHouse() {
+        Map<Integer, Long> frequencies = frequencies();
         if(frequencies.size() !=2 || !frequencies.containsValue(3L))
             return ZERO;
-        return yatzy.sum();
+        return sum();
     }
+
 }
 
 
