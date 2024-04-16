@@ -137,21 +137,16 @@ public class Yatzy {
         return sum();
     }
 
-    public static int largeStraight(int d1, int d2, int d3, int d4, int d5) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1 - 1] += 1;
-        tallies[d2 - 1] += 1;
-        tallies[d3 - 1] += 1;
-        tallies[d4 - 1] += 1;
-        tallies[d5 - 1] += 1;
-        if (tallies[1] == 1 &&
-            tallies[2] == 1 &&
-            tallies[3] == 1 &&
-            tallies[4] == 1
-            && tallies[5] == 1)
-            return 20;
-        return 0;
+    public int largeStraight(int d1, int d2, int d3, int d4, int d5) {
+        long count = frequencies()
+            .entrySet()
+            .stream()
+            .filter(it -> it.getValue() == 1)
+            .filter(it -> !Objects.equals(it.getKey(), 1))
+            .count();
+        if(count != 5)
+            return ZERO;
+        return sum();
     }
 
     public static int fullHouse(int d1, int d2, int d3, int d4, int d5) {
