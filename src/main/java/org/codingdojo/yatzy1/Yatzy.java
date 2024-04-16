@@ -19,12 +19,6 @@ public class Yatzy {
         this.dices = dices;
     }
 
-    private Integer scoreNumber(int diceValue) {
-        return filterDiceValue(diceValue)
-            .stream()
-            .reduce(0, Integer::sum);
-    }
-
     private List<Integer> atLeast(int atLeastFrequency) {
         return frequencies().entrySet().stream().filter(it -> it.getValue() >= atLeastFrequency).map(Map.Entry::getKey).toList();
     }
@@ -49,6 +43,14 @@ public class Yatzy {
             .collect(toList());
     }
 
+    private Integer scoreNumber(int diceValue) {
+        return filterDiceValue(diceValue)
+            .stream()
+            .reduce(0, Integer::sum);
+    }
+
+
+    /// to extract to scorer
     public int ones() {
         return this.scoreNumber(1);
     }
