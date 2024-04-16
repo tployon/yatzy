@@ -111,9 +111,9 @@ public class YatzyTest {
 
     @Test
     public void largeStraight() {
-        assertEquals(20, new Yatzy(List.of(6, 2, 3, 4, 5)).largeStraight(6,2,3,4,5));
-        assertEquals(20, new Yatzy(List.of(2, 3, 4, 5, 6)).largeStraight(2,3,4,5,6));
-        assertEquals(0, new Yatzy(List.of(1, 2, 2, 4, 5)).largeStraight(1,2,2,4,5));
+        assertEquals(20, new Yatzy(List.of(6, 2, 3, 4, 5)).largeStraight());
+        assertEquals(20, new Yatzy(List.of(2, 3, 4, 5, 6)).largeStraight());
+        assertEquals(0, new Yatzy(List.of(1, 2, 2, 4, 5)).largeStraight());
     }
 
     @Test

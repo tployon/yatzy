@@ -137,7 +137,7 @@ public class Yatzy {
         return sum();
     }
 
-    public int largeStraight(int d1, int d2, int d3, int d4, int d5) {
+    public int largeStraight() {
         long count = frequencies()
             .entrySet()
             .stream()
