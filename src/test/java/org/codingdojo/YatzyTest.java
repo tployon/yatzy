@@ -104,9 +104,9 @@ public class YatzyTest {
 
     @Test
     public void smallStraight() {
-        assertEquals(15, Yatzy.smallStraight(1,2,3,4,5));
-        assertEquals(15, Yatzy.smallStraight(2,3,4,5,1));
-        assertEquals(0, Yatzy.smallStraight(1,2,2,4,5));
+        assertEquals(15, new Yatzy(List.of(1, 2, 3, 4, 5)).smallStraight());
+        assertEquals(15, new Yatzy(List.of(2, 3, 4, 5, 1)).smallStraight());
+        assertEquals(0, new Yatzy(List.of(1, 2, 2, 4, 5)).smallStraight());
     }
 
     @Test
