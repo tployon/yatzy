@@ -13,21 +13,16 @@ public class Yatzy {
     public static final int YATZY = 50;
     public static final int ZERO = 0;
 
-    private static Integer scoreNumber(Yatzy yatzy, int diceValue) {
-        return yatzy
-            .filterDiceValue(diceValue)
-            .stream()
-            .reduce(0, Integer::sum);
-    }
-
-    public static int threes(Yatzy yatzy) {
-        return scoreNumber(yatzy, 3);
-    }
-
     private final List<Integer> dices;
 
     public Yatzy(List<Integer> dices) {
         this.dices = dices;
+    }
+
+    private Integer scoreNumber(int diceValue) {
+        return filterDiceValue(diceValue)
+            .stream()
+            .reduce(0, Integer::sum);
     }
 
     private List<Integer> atLeast(int atLeastFrequency) {
@@ -55,23 +50,27 @@ public class Yatzy {
     }
 
     public int ones() {
-        return scoreNumber(this, 1);
+        return this.scoreNumber(1);
     }
 
     public int twos() {
-        return scoreNumber(this, 2);
+        return this.scoreNumber(2);
+    }
+
+    public int threes() {
+        return this.scoreNumber(3);
     }
 
     public int fours() {
-        return scoreNumber(this, 4);
+        return this.scoreNumber(4);
     }
 
     public int fives() {
-        return scoreNumber(this, 5);
+        return this.scoreNumber(5);
     }
 
     public int sixes() {
-        return scoreNumber(this, 6);
+        return this.scoreNumber(6);
     }
 
     public int chance() {

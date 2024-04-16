@@ -45,8 +45,8 @@ public class YatzyTest {
 
     @Test
     public void test_threes() {
-        assertEquals(6, Yatzy.threes(new Yatzy(List.of(1, 2, 3, 2, 3))));
-        assertEquals(12, Yatzy.threes(new Yatzy(List.of(2, 3, 3, 3, 3))));
+        assertEquals(6, new Yatzy(List.of(1, 2, 3, 2, 3)).threes());
+        assertEquals(12, new Yatzy(List.of(2, 3, 3, 3, 3)).threes());
     }
 
     @Test
