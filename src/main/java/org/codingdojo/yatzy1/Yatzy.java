@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static java.util.Comparator.naturalOrder;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.*;
 
@@ -16,6 +15,7 @@ public class Yatzy {
     private final List<Integer> dices;
     private final ChanceScorer chanceScorer = new ChanceScorer();
     private final YatzyScorer yatzyScorer = new YatzyScorer();
+    private final PairScorer pairScorer = new PairScorer();
 
     public Yatzy(List<Integer> dices) {
         this.dices = dices;
@@ -35,7 +35,7 @@ public class Yatzy {
             .collect(toList());
     }
 
-    private List<Integer> atLeast(int atLeastFrequency) {
+    public List<Integer> atLeast(int atLeastFrequency) {
         return frequencies().entrySet()
             .stream()
             .filter(it -> it.getValue() >= atLeastFrequency)
@@ -49,16 +49,7 @@ public class Yatzy {
     }
 
     public int score_pair() {
-        return score(this);
-    }
-
-    private Integer score(Yatzy yatzy) {
-        return yatzy
-            .atLeast(2)
-            .stream()
-            .max(naturalOrder())
-            .map(it -> it * 2)
-            .orElse(ZERO);
+        return pairScorer.score(this);
     }
 
     public int two_pair() {
