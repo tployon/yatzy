@@ -49,10 +49,6 @@ public class Yatzy {
         return score.score(yatzy);
     }
 
-    public int chance() {
-        return score(this, Score.CHANCE);
-    }
-
     public int yatzy() {
         return frequencies()
             .entrySet()
