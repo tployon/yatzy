@@ -16,6 +16,7 @@ public class Yatzy {
     private final ChanceScorer chanceScorer = new ChanceScorer();
     private final YatzyScorer yatzyScorer = new YatzyScorer();
     private final PairScorer pairScorer = new PairScorer();
+    private final TwoPairsScorer twoPairsScorer = new TwoPairsScorer();
 
     public Yatzy(List<Integer> dices) {
         this.dices = dices;
@@ -49,13 +50,7 @@ public class Yatzy {
     }
 
     public int two_pair() {
-        if (atLeast(2).size() !=2)
-            return ZERO;
-
-        return atLeast(2)
-            .stream()
-            .map(it -> it * 2)
-            .reduce(0, Integer::sum);
+        return twoPairsScorer.score(this);
     }
 
     public int three_of_a_kind() {
