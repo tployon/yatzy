@@ -43,35 +43,9 @@ public class Yatzy {
             .collect(toList());
     }
 
-
-    /// to extract to scorer
-    public int ones() {
-        return score(this, Score.ONES);
-    }
-
     //Future Yatzy interface
-    public Integer score(Yatzy yatzy, Score score) {
+    public static Integer score(Yatzy yatzy, Score score) {
         return score.score(yatzy);
-    }
-
-    public int twos() {
-        return score(this, Score.TWOS);
-    }
-
-    public int threes() {
-        return score(this, Score.THREES);
-    }
-
-    public int fours() {
-        return score(this, Score.FOURS);
-    }
-
-    public int fives() {
-        return score(this, Score.FIVES);
-    }
-
-    public int sixes() {
-        return score(this, Score.SIXES);
     }
 
     public int chance() {
