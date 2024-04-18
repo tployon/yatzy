@@ -13,10 +13,6 @@ public class Yatzy {
     public static final int ZERO = 0;
 
     private final List<Integer> dices;
-    private final ChanceScorer chanceScorer = new ChanceScorer();
-    private final YatzyScorer yatzyScorer = new YatzyScorer();
-    private final PairScorer pairScorer = new PairScorer();
-    private final TwoPairsScorer twoPairsScorer = new TwoPairsScorer();
 
     public Yatzy(List<Integer> dices) {
         this.dices = dices;
