@@ -1,6 +1,8 @@
 package org.codingdojo.yatzy1;
 
 public class YatzyScorer implements Scorer {
+    public static final int YATZY = 50;
+
     public YatzyScorer() {
     }
 
@@ -9,7 +11,7 @@ public class YatzyScorer implements Scorer {
             .entrySet()
             .stream()
             .filter(it -> it.getValue() == 5)
-            .map(it -> Yatzy.YATZY)
+            .map(it -> YATZY)
             .findFirst()
             .orElse(Yatzy.ZERO);
     }
