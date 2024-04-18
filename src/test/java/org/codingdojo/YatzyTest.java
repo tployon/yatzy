@@ -79,10 +79,14 @@ public class YatzyTest {
 
     @Test
     public void one_pair() {
-        assertEquals(6, new Yatzy(List.of(3, 4, 3, 5, 6)).score_pair());
-        assertEquals(10, new Yatzy(List.of(5, 3, 3, 3, 5)).score_pair());
-        assertEquals(12, new Yatzy(List.of(5, 3, 6, 6, 5)).score_pair());
-        assertEquals(0, new Yatzy(List.of(5, 3, 1, 6, 2)).score_pair());
+        Yatzy yatzy3 = new Yatzy(List.of(3, 4, 3, 5, 6));
+        assertEquals(6, (int) Yatzy.score(yatzy3, Score.PAIR));
+        Yatzy yatzy2 = new Yatzy(List.of(5, 3, 3, 3, 5));
+        assertEquals(10, (int) Yatzy.score(yatzy2, Score.PAIR));
+        Yatzy yatzy1 = new Yatzy(List.of(5, 3, 6, 6, 5));
+        assertEquals(12, (int) Yatzy.score(yatzy1, Score.PAIR));
+        Yatzy yatzy = new Yatzy(List.of(5, 3, 1, 6, 2));
+        assertEquals(0, (int) Yatzy.score(yatzy, Score.PAIR));
     }
 
     @Test

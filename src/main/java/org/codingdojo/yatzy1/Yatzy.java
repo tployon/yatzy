@@ -48,10 +48,6 @@ public class Yatzy {
         return score.score(yatzy);
     }
 
-    public int score_pair() {
-        return pairScorer.score(this);
-    }
-
     public int two_pair() {
         if (atLeast(2).size() !=2)
             return ZERO;
