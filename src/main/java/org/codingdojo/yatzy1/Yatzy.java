@@ -49,10 +49,6 @@ public class Yatzy {
         return score.score(yatzy);
     }
 
-    public int two_pair() {
-        return twoPairsScorer.score(this);
-    }
-
     public int three_of_a_kind() {
         return someOfAKind(3);
     }
