@@ -63,7 +63,7 @@ public class Yatzy {
     }
 
     public int fours() {
-        return new ScorerNumber(4).score(this);
+        return score(this, Score.FOURS);
     }
 
     public int fives() {
