@@ -21,10 +21,6 @@ public class Yatzy {
         this.dices = dices;
     }
 
-    private List<Integer> atLeast(int atLeastFrequency) {
-        return frequencies().entrySet().stream().filter(it -> it.getValue() >= atLeastFrequency).map(Map.Entry::getKey).toList();
-    }
-
     public Map<Integer, Long> frequencies() {
         return dices.stream().collect(groupingBy(identity(), counting()));
     }
@@ -39,32 +35,37 @@ public class Yatzy {
             .collect(toList());
     }
 
+    private List<Integer> atLeast(int atLeastFrequency) {
+        return frequencies().entrySet()
+            .stream()
+            .filter(it -> it.getValue() >= atLeastFrequency)
+            .map(Map.Entry::getKey)
+            .toList();
+    }
+
     //Future Yatzy interface
     public static Integer score(Yatzy yatzy, Score score) {
         return score.score(yatzy);
     }
 
     public int score_pair() {
-        return pairs()
+        return score(this);
+    }
+
+    private Integer score(Yatzy yatzy) {
+        return yatzy
+            .atLeast(2)
             .stream()
             .max(naturalOrder())
             .map(it -> it * 2)
             .orElse(ZERO);
     }
 
-    private List<Integer> pairs() {
-        return frequencies().entrySet()
-            .stream()
-            .filter(it -> it.getValue() >= 2)
-            .map(Map.Entry::getKey)
-            .collect(toList());
-    }
-
     public int two_pair() {
-        if (pairs().size() !=2)
+        if (atLeast(2).size() !=2)
             return ZERO;
 
-        return pairs()
+        return atLeast(2)
             .stream()
             .map(it -> it * 2)
             .reduce(0, Integer::sum);
