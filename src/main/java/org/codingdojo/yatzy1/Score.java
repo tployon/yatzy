@@ -6,7 +6,7 @@ public enum Score {
     THREES(new ScorerNumber(3)),
     FOURS(new ScorerNumber(4)),
     FIVES(new ScorerNumber(5)),
-    ;
+    SIXES(new ScorerNumber(6));
 
     private final Scorer scorer;
 

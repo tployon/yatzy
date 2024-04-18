@@ -71,7 +71,7 @@ public class Yatzy {
     }
 
     public int sixes() {
-        return new ScorerNumber(6).score(this);
+        return score(this, Score.SIXES);
     }
 
     public int chance() {
