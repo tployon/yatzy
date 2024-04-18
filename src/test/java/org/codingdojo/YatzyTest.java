@@ -102,17 +102,24 @@ public class YatzyTest {
     @Test
     public void three_of_a_kind() 
     {
-        assertEquals(9, new Yatzy(List.of(3, 3, 3, 4, 5)).three_of_a_kind());
-        assertEquals(15, new Yatzy(List.of(5, 3, 5, 4, 5)).three_of_a_kind());
-        assertEquals(9, new Yatzy(List.of(3, 3, 3, 3, 5)).three_of_a_kind());
-        assertEquals(0, new Yatzy(List.of(1, 2, 3, 3, 5)).three_of_a_kind());
+        Yatzy yatzy3 = new Yatzy(List.of(3, 3, 3, 4, 5));
+        assertEquals(9, (int) Yatzy.score(yatzy3, Score.THREE_OF_A_KIND));
+        Yatzy yatzy2 = new Yatzy(List.of(5, 3, 5, 4, 5));
+        assertEquals(15, (int) Yatzy.score(yatzy2, Score.THREE_OF_A_KIND));
+        Yatzy yatzy1 = new Yatzy(List.of(3, 3, 3, 3, 5));
+        assertEquals(9, (int) Yatzy.score(yatzy1, Score.THREE_OF_A_KIND));
+        Yatzy yatzy = new Yatzy(List.of(1, 2, 3, 3, 5));
+        assertEquals(0, (int) Yatzy.score(yatzy, Score.THREE_OF_A_KIND));
     }
 
     @Test
     public void four_of_a_knd() {
-        assertEquals(12, new Yatzy(List.of(3, 3, 3, 3, 5)).four_of_a_kind());
-        assertEquals(20, new Yatzy(List.of(5, 5, 5, 4, 5)).four_of_a_kind());
-        assertEquals(0, new Yatzy(List.of(1, 2, 3, 4, 3)).four_of_a_kind());
+        Yatzy yatzy2 = new Yatzy(List.of(3, 3, 3, 3, 5));
+        assertEquals(12, (int) Yatzy.score(yatzy2, Score.FOUR_OF_A_KIND));
+        Yatzy yatzy1 = new Yatzy(List.of(5, 5, 5, 4, 5));
+        assertEquals(20, (int) Yatzy.score(yatzy1, Score.FOUR_OF_A_KIND));
+        Yatzy yatzy = new Yatzy(List.of(1, 2, 3, 4, 3));
+        assertEquals(0, (int) Yatzy.score(yatzy, Score.FOUR_OF_A_KIND));
     }
 
     @Test

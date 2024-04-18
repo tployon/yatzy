@@ -49,14 +49,6 @@ public class Yatzy {
         return score.score(yatzy);
     }
 
-    public int three_of_a_kind() {
-        return score(this, Score.THREE_OF_A_KIND);
-    }
-
-    public int four_of_a_kind() {
-        return score(this, Score.FOUR_OF_A_KIND);
-    }
-
     public int smallStraight() {
         long count = frequencies()
             .entrySet()
