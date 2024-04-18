@@ -9,7 +9,8 @@ public enum Score {
         this.scorer = scorer;
     }
 
-    public Scorer getScorer() {
-        return scorer;
+    Integer getScore(Yatzy yatzy) {
+        return scorer.score(yatzy);
     }
+
 }

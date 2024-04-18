@@ -51,7 +51,7 @@ public class Yatzy {
 
     //Future Yatzy interface
     private Integer score(Yatzy yatzy, Score score) {
-        return score.getScorer().score(yatzy);
+        return score.getScore(yatzy);
     }
 
     public int twos() {
