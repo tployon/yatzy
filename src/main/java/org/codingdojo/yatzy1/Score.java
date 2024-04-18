@@ -7,7 +7,8 @@ public enum Score {
     FOURS(new ScorerNumber(4)),
     FIVES(new ScorerNumber(5)),
     SIXES(new ScorerNumber(6)),
-    CHANCE(new ChanceScorer());
+    CHANCE(new ChanceScorer()),
+    YATZY(new YatzyScorer());
 
     private final Scorer scorer;
 

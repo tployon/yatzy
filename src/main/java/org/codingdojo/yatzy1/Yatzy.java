@@ -15,6 +15,7 @@ public class Yatzy {
 
     private final List<Integer> dices;
     private final ChanceScorer chanceScorer = new ChanceScorer();
+    private final YatzyScorer yatzyScorer = new YatzyScorer();
 
     public Yatzy(List<Integer> dices) {
         this.dices = dices;
@@ -24,7 +25,7 @@ public class Yatzy {
         return frequencies().entrySet().stream().filter(it -> it.getValue() >= atLeastFrequency).map(Map.Entry::getKey).toList();
     }
 
-    private Map<Integer, Long> frequencies() {
+    public Map<Integer, Long> frequencies() {
         return dices.stream().collect(groupingBy(identity(), counting()));
     }
 
@@ -50,13 +51,7 @@ public class Yatzy {
     }
 
     public int yatzy() {
-        return frequencies()
-            .entrySet()
-            .stream()
-            .filter(it -> it.getValue() == 5)
-            .map(it -> Yatzy.YATZY)
-            .findFirst()
-            .orElse(Yatzy.ZERO);
+        return score(this, Score.YATZY);
     }
 
     public int score_pair() {
