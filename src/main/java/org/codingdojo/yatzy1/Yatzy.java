@@ -14,6 +14,7 @@ public class Yatzy {
     public static final int ZERO = 0;
 
     private final List<Integer> dices;
+    private final ChanceScorer chanceScorer = new ChanceScorer();
 
     public Yatzy(List<Integer> dices) {
         this.dices = dices;
@@ -27,7 +28,7 @@ public class Yatzy {
         return dices.stream().collect(groupingBy(identity(), counting()));
     }
 
-    private Integer sum() {
+    public Integer sum() {
         return dices.stream().reduce(0, Integer::sum);
     }
 
@@ -49,7 +50,7 @@ public class Yatzy {
     }
 
     public int chance() {
-        return sum();
+        return score(this, Score.CHANCE);
     }
 
     public int yatzy() {
