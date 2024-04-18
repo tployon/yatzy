@@ -50,12 +50,12 @@ public class Yatzy {
     }
 
     //Future Yatzy interface
-    private Integer score(Yatzy yatzy, Score score) {
-        return score.getScore(yatzy);
+    public Integer score(Yatzy yatzy, Score score) {
+        return score.score(yatzy);
     }
 
     public int twos() {
-        return new ScorerNumber(2).score(this);
+        return score(this, Score.TWOS);
     }
 
     public int threes() {

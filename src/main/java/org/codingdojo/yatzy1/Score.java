@@ -1,7 +1,7 @@
 package org.codingdojo.yatzy1;
 
 public enum Score {
-    ONES(new ScorerNumber(1));
+    ONES(new ScorerNumber(1)), TWOS(new ScorerNumber(2));
 
     private final Scorer scorer;
 
@@ -9,7 +9,7 @@ public enum Score {
         this.scorer = scorer;
     }
 
-    Integer getScore(Yatzy yatzy) {
+    Integer score(Yatzy yatzy) {
         return scorer.score(yatzy);
     }
 
