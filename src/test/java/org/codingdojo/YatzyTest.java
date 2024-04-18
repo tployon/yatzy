@@ -124,16 +124,16 @@ public class YatzyTest {
 
     @Test
     public void smallStraight() {
-        assertEquals(15, new Yatzy(List.of(1, 2, 3, 4, 5)).smallStraight());
-        assertEquals(15, new Yatzy(List.of(2, 3, 4, 5, 1)).smallStraight());
-        assertEquals(0, new Yatzy(List.of(1, 2, 2, 4, 5)).smallStraight());
+        assertEquals(15, (int) Yatzy.score(new Yatzy(List.of(1, 2, 3, 4, 5)), Score.SMALL_STRAIGHT));
+        assertEquals(15, (int) Yatzy.score(new Yatzy(List.of(2, 3, 4, 5, 1)), Score.SMALL_STRAIGHT));
+        assertEquals(0, (int) Yatzy.score(new Yatzy(List.of(1, 2, 2, 4, 5)), Score.SMALL_STRAIGHT));
     }
 
     @Test
     public void largeStraight() {
-        assertEquals(20, new Yatzy(List.of(6, 2, 3, 4, 5)).largeStraight());
-        assertEquals(20, new Yatzy(List.of(2, 3, 4, 5, 6)).largeStraight());
-        assertEquals(0, new Yatzy(List.of(1, 2, 2, 4, 5)).largeStraight());
+        assertEquals(20, (int) Yatzy.score(new Yatzy(List.of(6, 2, 3, 4, 5)), Score.LARGE_STRAIGHT));
+        assertEquals(20, (int) Yatzy.score(new Yatzy(List.of(2, 3, 4, 5, 6)), Score.LARGE_STRAIGHT));
+        assertEquals(0, (int) Yatzy.score(new Yatzy(List.of(1, 2, 2, 4, 5)), Score.LARGE_STRAIGHT));
     }
 
     @Test

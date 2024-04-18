@@ -45,14 +45,6 @@ public class Yatzy {
         return score.score(yatzy);
     }
 
-    public int smallStraight() {
-        return score(this, Score.SMALL_STRAIGHT);
-    }
-
-    public int largeStraight() {
-        return score(this, Score.LARGE_STRAIGHT);
-    }
-
     public int fullHouse() {
         Map<Integer, Long> frequencies = frequencies();
         if(frequencies.size() !=2 || !frequencies.containsValue(3L))
