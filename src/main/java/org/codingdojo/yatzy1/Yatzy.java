@@ -50,19 +50,11 @@ public class Yatzy {
     }
 
     public int three_of_a_kind() {
-        return someOfAKind(new SomeOfAKindScorer(3), this);
+        return score(this, Score.THREE_OF_A_KIND);
     }
 
     public int four_of_a_kind() {
-        return someOfAKind(new SomeOfAKindScorer(4), this);
-    }
-
-    private Integer someOfAKind(SomeOfAKindScorer someOfAKindScorer, Yatzy yatzy) {
-        return yatzy.atLeast(someOfAKindScorer.atLeastFrequency())
-            .stream()
-            .findFirst()
-            .map(it -> it * someOfAKindScorer.atLeastFrequency())
-            .orElse(ZERO);
+        return score(this, Score.FOUR_OF_A_KIND);
     }
 
     public int smallStraight() {

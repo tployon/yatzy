@@ -11,6 +11,8 @@ public enum Score {
     YATZY(new YatzyScorer()),
     PAIR(new PairScorer()),
     TWO_PAIRS(new TwoPairsScorer()),
+    THREE_OF_A_KIND(new SomeOfAKindScorer(3)),
+    FOUR_OF_A_KIND(new SomeOfAKindScorer(4)),
     ;
 
     private final Scorer scorer;
