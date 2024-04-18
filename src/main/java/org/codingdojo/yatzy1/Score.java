@@ -13,6 +13,8 @@ public enum Score {
     TWO_PAIRS(new TwoPairsScorer()),
     THREE_OF_A_KIND(new SomeOfAKindScorer(3)),
     FOUR_OF_A_KIND(new SomeOfAKindScorer(4)),
+    SMALL_STRAIGHT(new AllButScorer(6)),
+    LARGE_STRAIGHT(new AllButScorer(1)),
     ;
 
     private final Scorer scorer;

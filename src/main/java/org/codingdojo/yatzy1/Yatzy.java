@@ -46,27 +46,11 @@ public class Yatzy {
     }
 
     public int smallStraight() {
-        long count = frequencies()
-            .entrySet()
-            .stream()
-            .filter(it -> it.getValue() == 1)
-            .filter(it -> !Objects.equals(it.getKey(), 6))
-            .count();
-        if(count != 5)
-            return ZERO;
-        return sum();
+        return score(this, Score.SMALL_STRAIGHT);
     }
 
     public int largeStraight() {
-        long count = frequencies()
-            .entrySet()
-            .stream()
-            .filter(it -> it.getValue() == 1)
-            .filter(it -> !Objects.equals(it.getKey(), 1))
-            .count();
-        if(count != 5)
-            return ZERO;
-        return sum();
+        return score(this, Score.LARGE_STRAIGHT);
     }
 
     public int fullHouse() {
