@@ -50,10 +50,6 @@ public class Yatzy {
         return score.score(yatzy);
     }
 
-    public int yatzy() {
-        return score(this, Score.YATZY);
-    }
-
     public int score_pair() {
         return pairs()
             .stream()
