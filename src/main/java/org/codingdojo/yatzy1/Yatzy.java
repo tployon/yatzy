@@ -31,7 +31,7 @@ public class Yatzy {
         return dices.stream().reduce(0, Integer::sum);
     }
 
-    private List<Integer> filterDiceValue(int diceValue) {
+    public List<Integer> filterDiceValue(int diceValue) {
         return dices.stream()
             .filter(it -> Objects.equals(it, diceValue))
             .collect(toList());
@@ -43,36 +43,35 @@ public class Yatzy {
             .collect(toList());
     }
 
-    private Integer scoreNumber(int diceValue) {
-        return filterDiceValue(diceValue)
-            .stream()
-            .reduce(0, Integer::sum);
-    }
-
 
     /// to extract to scorer
     public int ones() {
-        return this.scoreNumber(1);
+        return score(this, Score.ONES);
+    }
+
+    //Future Yatzy interface
+    private Integer score(Yatzy yatzy, Score score) {
+        return score.getScorer().score(yatzy);
     }
 
     public int twos() {
-        return this.scoreNumber(2);
+        return new ScorerNumber(2).score(this);
     }
 
     public int threes() {
-        return this.scoreNumber(3);
+        return new ScorerNumber(3).score(this);
     }
 
     public int fours() {
-        return this.scoreNumber(4);
+        return new ScorerNumber(4).score(this);
     }
 
     public int fives() {
-        return this.scoreNumber(5);
+        return new ScorerNumber(5).score(this);
     }
 
     public int sixes() {
-        return this.scoreNumber(6);
+        return new ScorerNumber(6).score(this);
     }
 
     public int chance() {
