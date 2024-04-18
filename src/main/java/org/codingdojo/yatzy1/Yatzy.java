@@ -39,12 +39,6 @@ public class Yatzy {
             .collect(toList());
     }
 
-    public List<Map.Entry<Integer, Long>> pairs() {
-        return frequencies().entrySet().stream()
-            .filter(it -> it.getValue() >= 2)
-            .collect(toList());
-    }
-
     //Future Yatzy interface
     public static Integer score(Yatzy yatzy, Score score) {
         return score.score(yatzy);
@@ -53,20 +47,25 @@ public class Yatzy {
     public int score_pair() {
         return pairs()
             .stream()
-            .map(Map.Entry::getKey)
             .max(naturalOrder())
             .map(it -> it * 2)
             .orElse(ZERO);
     }
 
+    private List<Integer> pairs() {
+        return frequencies().entrySet()
+            .stream()
+            .filter(it -> it.getValue() >= 2)
+            .map(Map.Entry::getKey)
+            .collect(toList());
+    }
+
     public int two_pair() {
-        List<Map.Entry<Integer, Long>> pairs = pairs();
-        if (pairs.size() !=2)
+        if (pairs().size() !=2)
             return ZERO;
 
-        return pairs
+        return pairs()
             .stream()
-            .map(Map.Entry::getKey)
             .map(it -> it * 2)
             .reduce(0, Integer::sum);
     }
