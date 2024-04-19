@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.codingdojo.yatzy.Yatzy.Score.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -15,130 +16,105 @@ public class YatzyTest {
 
     @Test
     public void chance_scores_sum_of_all_dice() {
-        DiceRoll yatzy1 = new DiceRoll(List.of(2, 3, 4, 5, 1));
-        assertEquals(15, (int) Yatzy.score(yatzy1, Yatzy.Score.CHANCE));
-        DiceRoll yatzy = new DiceRoll(List.of(3, 3, 4, 5, 1));
-        assertEquals(16, (int) Yatzy.score(yatzy, Yatzy.Score.CHANCE));
+        assertEquals(15, Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 1)), CHANCE));
+        assertEquals(16, Yatzy.score(new DiceRoll(List.of(3, 3, 4, 5, 1)), CHANCE));
     }
 
-    @Test public void yatzy_scores_50() {
-        final Integer[] integers = new Integer[]{4, 4, 4, 4, 4};
-        final List<Integer> list = Arrays.asList(integers);
-        DiceRoll yatzy2 = new DiceRoll(list);
-        assertEquals(50, (int) Yatzy.score(yatzy2, Yatzy.Score.YATZY));
-        final Integer[] integers1 = new Integer[]{6, 6, 6, 6, 6};
-        final List<Integer> list1 = Arrays.asList(integers1);
-        DiceRoll yatzy1 = new DiceRoll(list1);
-        assertEquals(50, (int) Yatzy.score(yatzy1, Yatzy.Score.YATZY));
-        final Integer[] integers2 = new Integer[]{6, 6, 6, 6, 3};
-        final List<Integer> list2 = Arrays.asList(integers2);
-        DiceRoll yatzy = new DiceRoll(list2);
-        assertEquals(0, (int) Yatzy.score(yatzy, Yatzy.Score.YATZY));
+    @Test
+    public void yatzy_scores_50() {
+        assertEquals(50, Yatzy.score(new DiceRoll(Arrays.asList(4, 4, 4, 4, 4)), YATZY));
+        assertEquals(50, Yatzy.score(new DiceRoll(Arrays.asList(6, 6, 6, 6, 6)), YATZY));
+        assertEquals(0, Yatzy.score(new DiceRoll(Arrays.asList(6, 6, 6, 6, 3)), YATZY));
     }
 
-    @Test public void test_1s() {
-        assertEquals(1, (int) Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 5)), Yatzy.Score.ONES));
-        assertEquals(2, (int) Yatzy.score(new DiceRoll(List.of(1, 2, 1, 4, 5)), Yatzy.Score.ONES));
-        assertEquals(0, (int) Yatzy.score(new DiceRoll(List.of(6, 2, 2, 4, 5)), Yatzy.Score.ONES));
-        assertEquals(4, (int) Yatzy.score(new DiceRoll(List.of(1, 2, 1, 1, 1)), Yatzy.Score.ONES));
+    @Test
+    public void test_1s() {
+        assertEquals(1, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 5)), ONES));
+        assertEquals(2, Yatzy.score(new DiceRoll(List.of(1, 2, 1, 4, 5)), ONES));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(6, 2, 2, 4, 5)), ONES));
+        assertEquals(4, Yatzy.score(new DiceRoll(List.of(1, 2, 1, 1, 1)), ONES));
     }
 
     @Test
     public void test_2s() {
-        assertEquals(4, (int) Yatzy.score(new DiceRoll(List.of(1, 2, 3, 2, 6)), Yatzy.Score.TWOS));
-        assertEquals(10, (int) Yatzy.score(new DiceRoll(List.of(2, 2, 2, 2, 2)), Yatzy.Score.TWOS));
+        assertEquals(4, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 2, 6)), TWOS));
+        assertEquals(10, Yatzy.score(new DiceRoll(List.of(2, 2, 2, 2, 2)), TWOS));
     }
 
     @Test
     public void test_threes() {
-        assertEquals(6, (int) Yatzy.score(new DiceRoll(List.of(1, 2, 3, 2, 3)), Yatzy.Score.THREES));
-        assertEquals(12, (int) Yatzy.score(new DiceRoll(List.of(2, 3, 3, 3, 3)), Yatzy.Score.THREES));
+        assertEquals(6, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 2, 3)), THREES));
+        assertEquals(12, Yatzy.score(new DiceRoll(List.of(2, 3, 3, 3, 3)), THREES));
     }
 
     @Test
-    public void fours_test() 
-    {
-        assertEquals(12, (int) Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), Yatzy.Score.FOURS));
-        assertEquals(8, (int) Yatzy.score(new DiceRoll(List.of(4, 4, 5, 5, 5)), Yatzy.Score.FOURS));
-        assertEquals(4, (int) Yatzy.score(new DiceRoll(List.of(4, 5, 5, 5, 5)), Yatzy.Score.FOURS));
+    public void fours_test() {
+        assertEquals(12, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FOURS));
+        assertEquals(8, Yatzy.score(new DiceRoll(List.of(4, 4, 5, 5, 5)), FOURS));
+        assertEquals(4, Yatzy.score(new DiceRoll(List.of(4, 5, 5, 5, 5)), FOURS));
     }
 
     @Test
     public void fives() {
-        assertEquals(10, (int) Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), Yatzy.Score.FIVES));
-        assertEquals(15, (int) Yatzy.score(new DiceRoll(List.of(4, 4, 5, 5, 5)), Yatzy.Score.FIVES));
-        assertEquals(20, (int) Yatzy.score(new DiceRoll(List.of(4, 5, 5, 5, 5)), Yatzy.Score.FIVES));
+        assertEquals(10, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FIVES));
+        assertEquals(15, Yatzy.score(new DiceRoll(List.of(4, 4, 5, 5, 5)), FIVES));
+        assertEquals(20, Yatzy.score(new DiceRoll(List.of(4, 5, 5, 5, 5)), FIVES));
     }
 
     @Test
     public void sixes_test() {
-        assertEquals(0, (int) Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), Yatzy.Score.SIXES));
-        assertEquals(6, (int) Yatzy.score(new DiceRoll(List.of(4, 4, 6, 5, 5)), Yatzy.Score.SIXES));
-        assertEquals(18, (int) Yatzy.score(new DiceRoll(List.of(6, 5, 6, 6, 5)), Yatzy.Score.SIXES));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), SIXES));
+        assertEquals(6, Yatzy.score(new DiceRoll(List.of(4, 4, 6, 5, 5)), SIXES));
+        assertEquals(18, Yatzy.score(new DiceRoll(List.of(6, 5, 6, 6, 5)), SIXES));
     }
 
     @Test
     public void one_pair() {
-        DiceRoll yatzy3 = new DiceRoll(List.of(3, 4, 3, 5, 6));
-        assertEquals(6, (int) Yatzy.score(yatzy3, Yatzy.Score.PAIR));
-        DiceRoll yatzy2 = new DiceRoll(List.of(5, 3, 3, 3, 5));
-        assertEquals(10, (int) Yatzy.score(yatzy2, Yatzy.Score.PAIR));
-        DiceRoll yatzy1 = new DiceRoll(List.of(5, 3, 6, 6, 5));
-        assertEquals(12, (int) Yatzy.score(yatzy1, Yatzy.Score.PAIR));
-        DiceRoll yatzy = new DiceRoll(List.of(5, 3, 1, 6, 2));
-        assertEquals(0, (int) Yatzy.score(yatzy, Yatzy.Score.PAIR));
+        assertEquals(6, Yatzy.score(new DiceRoll(List.of(3, 4, 3, 5, 6)), PAIR));
+        assertEquals(10, Yatzy.score(new DiceRoll(List.of(5, 3, 3, 3, 5)), PAIR));
+        assertEquals(12, Yatzy.score(new DiceRoll(List.of(5, 3, 6, 6, 5)), PAIR));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(5, 3, 1, 6, 2)), PAIR));
     }
 
     @Test
     public void two_Pair() {
-        DiceRoll yatzy2 = new DiceRoll(List.of(3, 3, 5, 4, 5));
-        assertEquals(16, (int) Yatzy.score(yatzy2, Yatzy.Score.TWO_PAIRS));
-        DiceRoll yatzy1 = new DiceRoll(List.of(3, 3, 5, 5, 5));
-        assertEquals(16, (int) Yatzy.score(yatzy1, Yatzy.Score.TWO_PAIRS));
-        DiceRoll yatzy = new DiceRoll(List.of(3, 3, 1, 2, 5));
-        assertEquals(0, (int) Yatzy.score(yatzy, Yatzy.Score.TWO_PAIRS));
+        assertEquals(16, Yatzy.score(new DiceRoll(List.of(3, 3, 5, 4, 5)), TWO_PAIRS));
+        assertEquals(16, Yatzy.score(new DiceRoll(List.of(3, 3, 5, 5, 5)), TWO_PAIRS));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(3, 3, 1, 2, 5)), TWO_PAIRS));
     }
 
     @Test
-    public void three_of_a_kind() 
-    {
-        DiceRoll yatzy3 = new DiceRoll(List.of(3, 3, 3, 4, 5));
-        assertEquals(9, (int) Yatzy.score(yatzy3, Yatzy.Score.THREE_OF_A_KIND));
-        DiceRoll yatzy2 = new DiceRoll(List.of(5, 3, 5, 4, 5));
-        assertEquals(15, (int) Yatzy.score(yatzy2, Yatzy.Score.THREE_OF_A_KIND));
-        DiceRoll yatzy1 = new DiceRoll(List.of(3, 3, 3, 3, 5));
-        assertEquals(9, (int) Yatzy.score(yatzy1, Yatzy.Score.THREE_OF_A_KIND));
-        DiceRoll yatzy = new DiceRoll(List.of(1, 2, 3, 3, 5));
-        assertEquals(0, (int) Yatzy.score(yatzy, Yatzy.Score.THREE_OF_A_KIND));
+    public void three_of_a_kind() {
+        assertEquals(9, Yatzy.score(new DiceRoll(List.of(3, 3, 3, 4, 5)), THREE_OF_A_KIND));
+        assertEquals(15, Yatzy.score(new DiceRoll(List.of(5, 3, 5, 4, 5)), THREE_OF_A_KIND));
+        assertEquals(9, Yatzy.score(new DiceRoll(List.of(3, 3, 3, 3, 5)), THREE_OF_A_KIND));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 3, 5)), THREE_OF_A_KIND));
     }
 
     @Test
     public void four_of_a_knd() {
-        DiceRoll yatzy2 = new DiceRoll(List.of(3, 3, 3, 3, 5));
-        assertEquals(12, (int) Yatzy.score(yatzy2, Yatzy.Score.FOUR_OF_A_KIND));
-        DiceRoll yatzy1 = new DiceRoll(List.of(5, 5, 5, 4, 5));
-        assertEquals(20, (int) Yatzy.score(yatzy1, Yatzy.Score.FOUR_OF_A_KIND));
-        DiceRoll yatzy = new DiceRoll(List.of(1, 2, 3, 4, 3));
-        assertEquals(0, (int) Yatzy.score(yatzy, Yatzy.Score.FOUR_OF_A_KIND));
+        assertEquals(12, Yatzy.score(new DiceRoll(List.of(3, 3, 3, 3, 5)), FOUR_OF_A_KIND));
+        assertEquals(20, Yatzy.score(new DiceRoll(List.of(5, 5, 5, 4, 5)), FOUR_OF_A_KIND));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 3)), FOUR_OF_A_KIND));
     }
 
     @Test
     public void smallStraight() {
-        assertEquals(15, (int) Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 5)), Yatzy.Score.SMALL_STRAIGHT));
-        assertEquals(15, (int) Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 1)), Yatzy.Score.SMALL_STRAIGHT));
-        assertEquals(0, (int) Yatzy.score(new DiceRoll(List.of(1, 2, 2, 4, 5)), Yatzy.Score.SMALL_STRAIGHT));
+        assertEquals(15, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 5)), SMALL_STRAIGHT));
+        assertEquals(15, Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 1)), SMALL_STRAIGHT));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 2, 4, 5)), SMALL_STRAIGHT));
     }
 
     @Test
     public void largeStraight() {
-        assertEquals(20, (int) Yatzy.score(new DiceRoll(List.of(6, 2, 3, 4, 5)), Yatzy.Score.LARGE_STRAIGHT));
-        assertEquals(20, (int) Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 6)), Yatzy.Score.LARGE_STRAIGHT));
-        assertEquals(0, (int) Yatzy.score(new DiceRoll(List.of(1, 2, 2, 4, 5)), Yatzy.Score.LARGE_STRAIGHT));
+        assertEquals(20, Yatzy.score(new DiceRoll(List.of(6, 2, 3, 4, 5)), LARGE_STRAIGHT));
+        assertEquals(20, Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 6)), LARGE_STRAIGHT));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 2, 4, 5)), LARGE_STRAIGHT));
     }
 
     @Test
     public void fullHouse() {
-        assertEquals(18, (int) Yatzy.score(new DiceRoll(List.of(6, 2, 2, 2, 6)), Yatzy.Score.FULL_HOUSE));
-        assertEquals(0, (int) Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 6)), Yatzy.Score.FULL_HOUSE));
+        assertEquals(18, Yatzy.score(new DiceRoll(List.of(6, 2, 2, 2, 6)), FULL_HOUSE));
+        assertEquals(0, Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 6)), FULL_HOUSE));
     }
 }
