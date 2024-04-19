@@ -49,7 +49,7 @@ public class YatzyTest {
     public class OnesScore {
 
         @Test
-        public void two_1_scores_2() {
+        public void two_ones_scores_2() {
             assertEquals(2, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 1, 5)), ONES));
         }
 
