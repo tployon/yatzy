@@ -1,4 +1,7 @@
-package org.codingdojo.yatzy1;
+package org.codingdojo.yatzy1.scorer;
+
+import org.codingdojo.yatzy1.Scorer;
+import org.codingdojo.yatzy1.Yatzy;
 
 public class ChanceScorer implements Scorer {
     public ChanceScorer() {

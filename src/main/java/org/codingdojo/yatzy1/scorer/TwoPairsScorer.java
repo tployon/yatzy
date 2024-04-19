@@ -1,8 +1,11 @@
-package org.codingdojo.yatzy1;
+package org.codingdojo.yatzy1.scorer;
+
+import org.codingdojo.yatzy1.Scorer;
+import org.codingdojo.yatzy1.Yatzy;
 
 import java.util.List;
 
-public class TwoPairsScorer implements Scorer{
+public class TwoPairsScorer implements Scorer {
     public TwoPairsScorer() {
     }
 

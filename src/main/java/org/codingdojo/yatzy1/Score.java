@@ -1,5 +1,7 @@
 package org.codingdojo.yatzy1;
 
+import org.codingdojo.yatzy1.scorer.*;
+
 public enum Score {
     ONES(new ScorerNumber(1)),
     TWOS(new ScorerNumber(2)),
