@@ -61,10 +61,19 @@ public class YatzyTest {
 
     }
 
-    @Test
-    public void test_2s() {
-        assertEquals(4, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 2, 6)), TWOS));
-        assertEquals(10, Yatzy.score(new DiceRoll(List.of(2, 2, 2, 2, 2)), TWOS));
+    @Nested
+    @DisplayName("Two scores ")
+    public class TwoScore {
+
+        @Test
+        public void  five_twos_scores_10() {
+            assertEquals(10, Yatzy.score(new DiceRoll(List.of(2, 2, 2, 2, 2)), TWOS));
+        }
+
+        @Test
+        public void  no_two_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 1, 1, 1,1)), TWOS));
+        }
     }
 
     @Test
