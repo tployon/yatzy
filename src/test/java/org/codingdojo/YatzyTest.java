@@ -28,9 +28,9 @@ public class YatzyTest {
     public class YatzyScore{
 
         private static Stream<DiceRoll> yatzies() {
-            return Stream.of(new DiceRoll(Arrays.asList(4, 4, 4, 4, 4)),
-                new DiceRoll(Arrays.asList(6, 6, 6, 6, 6)));
+            return Stream.of(new DiceRoll(Arrays.asList(4, 4, 4, 4, 4)), new DiceRoll(Arrays.asList(6, 6, 6, 6, 6)));
         }
+
         @ParameterizedTest
         @MethodSource("yatzies")
         @DisplayName("50")

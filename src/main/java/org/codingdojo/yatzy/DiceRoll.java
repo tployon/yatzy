@@ -37,6 +37,10 @@ public class DiceRoll {
             .toList();
     }
 
+    @Override
+    public String toString() {
+        return "Dice Roll " +  dices ;
+    }
 }
 
 
