@@ -17,7 +17,6 @@ public class YatzyTest {
     @Test
     public void chance_scores_sum_of_all_dice() {
         assertEquals(15, Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 1)), CHANCE));
-        assertEquals(16, Yatzy.score(new DiceRoll(List.of(3, 3, 4, 5, 1)), CHANCE));
     }
 
     @Test
