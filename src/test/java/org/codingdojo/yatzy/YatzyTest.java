@@ -161,26 +161,46 @@ public class YatzyTest {
         }
     }
 
-    @Test
-    public void three_of_a_kind() {
-        assertEquals(9, Yatzy.score(new DiceRoll(List.of(3, 3, 3, 4, 5)), THREE_OF_A_KIND));
-        assertEquals(15, Yatzy.score(new DiceRoll(List.of(5, 3, 5, 4, 5)), THREE_OF_A_KIND));
-        assertEquals(9, Yatzy.score(new DiceRoll(List.of(3, 3, 3, 3, 5)), THREE_OF_A_KIND));
-        assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 3, 5)), THREE_OF_A_KIND));
+    @Nested
+    public class Three0fAKindScore {
+        @Test
+        public void three_of_a_kind_scores_only_three_of_the_kind() {
+            assertEquals(15, Yatzy.score(new DiceRoll(List.of(5, 3, 5, 5, 5)), THREE_OF_A_KIND));
+        }
+
+        @Test
+        void no_three_of_a_kind_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 3, 5)), THREE_OF_A_KIND));
+        }
+
     }
 
-    @Test
-    public void four_of_a_knd() {
-        assertEquals(12, Yatzy.score(new DiceRoll(List.of(3, 3, 3, 3, 5)), FOUR_OF_A_KIND));
-        assertEquals(20, Yatzy.score(new DiceRoll(List.of(5, 5, 5, 4, 5)), FOUR_OF_A_KIND));
-        assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 3)), FOUR_OF_A_KIND));
+
+    @Nested
+    public class Four0fAKindScore {
+        @Test
+        public void four_of_a_kind_scores_only_four_of_the_kind() {
+            assertEquals(12, Yatzy.score(new DiceRoll(List.of(3, 3, 3, 3, 3)), FOUR_OF_A_KIND));
+        }
+
+        @Test
+        void no_four_of_a_kind_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 3)), FOUR_OF_A_KIND));
+        }
+
     }
 
-    @Test
-    public void smallStraight() {
-        assertEquals(15, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 5)), SMALL_STRAIGHT));
-        assertEquals(15, Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 1)), SMALL_STRAIGHT));
-        assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 2, 4, 5)), SMALL_STRAIGHT));
+    @Nested
+    public class SmallStraightScore {
+        @Test
+        public void small_straight_scores_the_sum() {
+            assertEquals(15, Yatzy.score(new DiceRoll(List.of(2, 3, 4, 5, 1)), SMALL_STRAIGHT));
+        }
+
+        @Test
+        void no_small_straight_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 2, 4, 5)), SMALL_STRAIGHT));
+        }
     }
 
     @Test
