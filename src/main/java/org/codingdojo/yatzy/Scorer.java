@@ -1,4 +1,4 @@
-package org.codingdojo.yatzy1;
+package org.codingdojo.yatzy;
 
 public interface Scorer {
     int ZERO = 0;

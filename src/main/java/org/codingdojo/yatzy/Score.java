@@ -1,6 +1,6 @@
-package org.codingdojo.yatzy1;
+package org.codingdojo.yatzy;
 
-import org.codingdojo.yatzy1.scorer.*;
+import org.codingdojo.yatzy.scorer.*;
 
 public enum Score {
     ONES(new ScorerNumber(1)),

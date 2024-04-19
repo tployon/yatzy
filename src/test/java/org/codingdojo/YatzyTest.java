@@ -1,7 +1,7 @@
 package org.codingdojo;
 
-import org.codingdojo.yatzy1.Score;
-import org.codingdojo.yatzy1.Yatzy;
+import org.codingdojo.yatzy.Score;
+import org.codingdojo.yatzy.Yatzy;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

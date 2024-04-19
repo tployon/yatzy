@@ -1,4 +1,4 @@
-package org.codingdojo.yatzy1;
+package org.codingdojo.yatzy;
 
 import java.util.List;
 import java.util.Map;

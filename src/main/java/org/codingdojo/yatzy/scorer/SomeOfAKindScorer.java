@@ -1,7 +1,7 @@
-package org.codingdojo.yatzy1.scorer;
+package org.codingdojo.yatzy.scorer;
 
-import org.codingdojo.yatzy1.Scorer;
-import org.codingdojo.yatzy1.Yatzy;
+import org.codingdojo.yatzy.Scorer;
+import org.codingdojo.yatzy.Yatzy;
 
 public record SomeOfAKindScorer(int atLeastFrequency) implements Scorer {
     public Integer score(Yatzy yatzy) {
