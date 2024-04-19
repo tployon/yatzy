@@ -44,10 +44,6 @@ public class Yatzy {
         return score.score(yatzy);
     }
 
-    public int fullHouse() {
-        return score(this, Score.FULL_HOUSE);
-    }
-
 }
 
 
