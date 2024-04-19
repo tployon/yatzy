@@ -22,7 +22,7 @@ public class YatzyGameTest {
 
     @Nested
     @DisplayName("Yatzy scores ")
-    public class YatzyGameScore {
+    public class Yatzy {
 
         private static Stream<DiceRoll> yatzies() {
             return Stream.of(new DiceRoll(List.of(4, 4, 4, 4, 4)), new DiceRoll(List.of(6, 6, 6, 6, 6)));
@@ -44,7 +44,7 @@ public class YatzyGameTest {
 
 
     @Nested
-    public class OnesScore {
+    public class Ones {
 
         @Test
         public void two_ones_scores_2() {
@@ -60,7 +60,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class TwosScore {
+    public class Twos {
 
         @Test
         public void five_twos_scores_10() {
@@ -74,7 +74,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class ThreesScore {
+    public class Threes {
         @Test
         public void two_threes_scores_6() {
             assertEquals(6, YatzyGame.score(new DiceRoll(List.of(1, 2, 3, 2, 3)), THREES));
@@ -87,7 +87,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class FoursScore {
+    public class Fours {
         @Test
         public void three_fours_scores_12() {
             assertEquals(12, YatzyGame.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FOURS));
@@ -101,7 +101,7 @@ public class YatzyGameTest {
 
 
     @Nested
-    public class FivesScore {
+    public class Fives {
         @Test
         public void two_fives_scores_10() {
             assertEquals(10, YatzyGame.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FIVES));
@@ -114,7 +114,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class SixesScore {
+    public class Sixes {
 
         @Test
         public void three_sixes_scores_18() {
@@ -128,7 +128,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class OnePairScore {
+    public class OnePair {
 
         @Test
         public void one_pair_scores_the_pair_sum() {
@@ -147,7 +147,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class TwoPairsScore {
+    public class TwoPairs {
 
         @Test
         public void two_pairs_scores_pairs_sum() {
@@ -161,7 +161,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class Three0fAKindScore {
+    public class Three0fAKind {
         @Test
         public void three_of_a_kind_scores_only_three_of_the_kind() {
             assertEquals(15, YatzyGame.score(new DiceRoll(List.of(5, 3, 5, 5, 5)), THREE_OF_A_KIND));
@@ -176,7 +176,7 @@ public class YatzyGameTest {
 
 
     @Nested
-    public class Four0fAKindScore {
+    public class Four0fAKind {
         @Test
         public void four_of_a_kind_scores_only_four_of_the_kind() {
             assertEquals(12, YatzyGame.score(new DiceRoll(List.of(3, 3, 3, 3, 3)), FOUR_OF_A_KIND));
@@ -190,7 +190,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class SmallStraightScore {
+    public class SmallStraight {
         @Test
         public void small_straight_scores_the_sum() {
             assertEquals(15, YatzyGame.score(new DiceRoll(List.of(2, 3, 4, 5, 1)), SMALL_STRAIGHT));
@@ -204,7 +204,7 @@ public class YatzyGameTest {
 
 
     @Nested
-    public class LargeStraightScore {
+    public class LargeStraight {
 
         @Test
         public void large_straight_scores_the_sum() {
@@ -218,7 +218,7 @@ public class YatzyGameTest {
     }
 
     @Nested
-    public class FullHouseScore {
+    public class FullHouse {
 
         @Test
         public void full_house_scores_the_sum() {
