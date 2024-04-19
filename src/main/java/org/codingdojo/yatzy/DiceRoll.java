@@ -37,11 +37,6 @@ public class DiceRoll {
             .toList();
     }
 
-    //Future Yatzy interface
-    public static Integer score(DiceRoll yatzy, Score score) {
-        return score.score(yatzy);
-    }
-
 }
 
 

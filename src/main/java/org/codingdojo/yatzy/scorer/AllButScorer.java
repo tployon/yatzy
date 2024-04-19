@@ -1,6 +1,5 @@
 package org.codingdojo.yatzy.scorer;
 
-import org.codingdojo.yatzy.Scorer;
 import org.codingdojo.yatzy.DiceRoll;
 
 import java.util.Objects;
