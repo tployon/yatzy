@@ -226,6 +226,11 @@ public class YatzyGameTest {
         }
 
         @Test
+        public void four_of_a_kind_is_not_a_full_house() {
+            assertEquals(0, YatzyGame.score(new DiceRoll(List.of(6, 6, 6, 2, 6)), FULL_HOUSE));
+        }
+
+        @Test
         void no_full_house_scores_0() {
             assertEquals(0, YatzyGame.score(new DiceRoll(List.of(2, 3, 4, 5, 6)), FULL_HOUSE));
         }
