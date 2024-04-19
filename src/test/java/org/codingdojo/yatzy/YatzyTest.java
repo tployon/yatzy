@@ -86,11 +86,18 @@ public class YatzyTest {
             assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 4, 2, 4)), THREES));
         }
     }
-    @Test
-    public void fours_test() {
-        assertEquals(12, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FOURS));
-        assertEquals(8, Yatzy.score(new DiceRoll(List.of(4, 4, 5, 5, 5)), FOURS));
-        assertEquals(4, Yatzy.score(new DiceRoll(List.of(4, 5, 5, 5, 5)), FOURS));
+
+    @Nested
+    public class FoursScore {
+        @Test
+        public void three_fours_scores_12() {
+            assertEquals(12, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FOURS));
+        }
+
+        @Test
+        void no_fours_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 1, 1, 5, 5)), FOURS));
+        }
     }
 
     @Test
