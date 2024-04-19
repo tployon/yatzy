@@ -45,7 +45,6 @@ public class YatzyTest {
 
 
     @Nested
-    @DisplayName("Ones scores ")
     public class OnesScore {
 
         @Test
@@ -62,8 +61,7 @@ public class YatzyTest {
     }
 
     @Nested
-    @DisplayName("Two scores ")
-    public class TwoScore {
+    public class TwosScore {
 
         @Test
         public void  five_twos_scores_10() {
@@ -76,12 +74,18 @@ public class YatzyTest {
         }
     }
 
-    @Test
-    public void test_threes() {
-        assertEquals(6, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 2, 3)), THREES));
-        assertEquals(12, Yatzy.score(new DiceRoll(List.of(2, 3, 3, 3, 3)), THREES));
-    }
+    @Nested
+    public class ThreesScore {
+        @Test
+        public void two_threes_scores_6() {
+            assertEquals(6, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 2, 3)), THREES));
+        }
 
+        @Test
+        public void no_threes_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 2, 4, 2, 4)), THREES));
+        }
+    }
     @Test
     public void fours_test() {
         assertEquals(12, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FOURS));
