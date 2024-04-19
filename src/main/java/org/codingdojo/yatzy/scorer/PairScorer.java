@@ -1,7 +1,7 @@
 package org.codingdojo.yatzy.scorer;
 
 import org.codingdojo.yatzy.Scorer;
-import org.codingdojo.yatzy.Yatzy;
+import org.codingdojo.yatzy.DiceRoll;
 
 import java.util.Comparator;
 
@@ -9,7 +9,7 @@ public class PairScorer implements Scorer {
     public PairScorer() {
     }
 
-    public Integer score(Yatzy yatzy) {
+    public Integer score(DiceRoll yatzy) {
         return yatzy
             .atLeast(2)
             .stream()

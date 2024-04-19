@@ -25,7 +25,7 @@ public enum Score {
         this.scorer = scorer;
     }
 
-    Integer score(Yatzy yatzy) {
+    Integer score(DiceRoll yatzy) {
         return scorer.score(yatzy);
     }
 

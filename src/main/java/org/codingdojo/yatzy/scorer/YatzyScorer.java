@@ -1,7 +1,7 @@
 package org.codingdojo.yatzy.scorer;
 
 import org.codingdojo.yatzy.Scorer;
-import org.codingdojo.yatzy.Yatzy;
+import org.codingdojo.yatzy.DiceRoll;
 
 public class YatzyScorer implements Scorer {
     public static final int YATZY = 50;
@@ -9,7 +9,7 @@ public class YatzyScorer implements Scorer {
     public YatzyScorer() {
     }
 
-    public Integer score(Yatzy yatzy) {
+    public Integer score(DiceRoll yatzy) {
         return yatzy.frequencies()
             .entrySet()
             .stream()

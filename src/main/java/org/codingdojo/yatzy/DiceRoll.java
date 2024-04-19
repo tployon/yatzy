@@ -7,11 +7,11 @@ import java.util.Objects;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.*;
 
-public class Yatzy {
+public class DiceRoll {
 
     private final List<Integer> dices;
 
-    public Yatzy(List<Integer> dices) {
+    public DiceRoll(List<Integer> dices) {
         this.dices = dices;
     }
 
@@ -38,7 +38,7 @@ public class Yatzy {
     }
 
     //Future Yatzy interface
-    public static Integer score(Yatzy yatzy, Score score) {
+    public static Integer score(DiceRoll yatzy, Score score) {
         return score.score(yatzy);
     }
 

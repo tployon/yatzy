@@ -1,14 +1,14 @@
 package org.codingdojo.yatzy.scorer;
 
 import org.codingdojo.yatzy.Scorer;
-import org.codingdojo.yatzy.Yatzy;
+import org.codingdojo.yatzy.DiceRoll;
 
 import java.util.Objects;
 
 public record AllButScorer(int notAllowedDiceValue) implements Scorer {
 
     @Override
-    public Integer score(Yatzy yatzy) {
+    public Integer score(DiceRoll yatzy) {
         long count = yatzy.frequencies()
             .entrySet()
             .stream()

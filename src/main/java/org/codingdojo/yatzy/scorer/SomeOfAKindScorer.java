@@ -1,10 +1,10 @@
 package org.codingdojo.yatzy.scorer;
 
 import org.codingdojo.yatzy.Scorer;
-import org.codingdojo.yatzy.Yatzy;
+import org.codingdojo.yatzy.DiceRoll;
 
 public record SomeOfAKindScorer(int atLeastFrequency) implements Scorer {
-    public Integer score(Yatzy yatzy) {
+    public Integer score(DiceRoll yatzy) {
         return yatzy.atLeast(atLeastFrequency())
             .stream()
             .findFirst()

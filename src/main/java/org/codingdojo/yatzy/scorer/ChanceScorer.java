@@ -1,13 +1,13 @@
 package org.codingdojo.yatzy.scorer;
 
 import org.codingdojo.yatzy.Scorer;
-import org.codingdojo.yatzy.Yatzy;
+import org.codingdojo.yatzy.DiceRoll;
 
 public class ChanceScorer implements Scorer {
     public ChanceScorer() {
     }
 
-    public Integer score(Yatzy yatzy) {
+    public Integer score(DiceRoll yatzy) {
         return yatzy.sum();
     }
 }
