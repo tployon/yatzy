@@ -64,13 +64,13 @@ public class YatzyTest {
     public class TwosScore {
 
         @Test
-        public void  five_twos_scores_10() {
+        public void five_twos_scores_10() {
             assertEquals(10, Yatzy.score(new DiceRoll(List.of(2, 2, 2, 2, 2)), TWOS));
         }
 
         @Test
-        public void  no_two_scores_0() {
-            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 1, 1, 1,1)), TWOS));
+        public void no_two_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 1, 1, 1, 1)), TWOS));
         }
     }
 
@@ -100,18 +100,31 @@ public class YatzyTest {
         }
     }
 
-    @Test
-    public void fives() {
-        assertEquals(10, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FIVES));
-        assertEquals(15, Yatzy.score(new DiceRoll(List.of(4, 4, 5, 5, 5)), FIVES));
-        assertEquals(20, Yatzy.score(new DiceRoll(List.of(4, 5, 5, 5, 5)), FIVES));
+
+    @Nested
+    public class FivesScore {
+        @Test
+        public void two_fives_scores_10() {
+            assertEquals(10, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), FIVES));
+        }
+
+        @Test
+        public void no_five_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 4, 4)), FIVES));
+        }
     }
 
-    @Test
-    public void sixes_test() {
-        assertEquals(0, Yatzy.score(new DiceRoll(List.of(4, 4, 4, 5, 5)), SIXES));
-        assertEquals(6, Yatzy.score(new DiceRoll(List.of(4, 4, 6, 5, 5)), SIXES));
-        assertEquals(18, Yatzy.score(new DiceRoll(List.of(6, 5, 6, 6, 5)), SIXES));
+    @Nested
+    public class SixesScore {
+
+        @Test
+        public void three_sixes_scores_18() {
+            assertEquals(18, Yatzy.score(new DiceRoll(List.of(6, 5, 6, 6, 5)), SIXES));
+        }
+        @Test
+        public void no_six_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 5, 2, 3, 5)), SIXES));
+        }
     }
 
     @Test
