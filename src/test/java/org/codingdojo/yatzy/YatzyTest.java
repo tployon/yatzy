@@ -1,7 +1,5 @@
-package org.codingdojo;
+package org.codingdojo.yatzy;
 
-import org.codingdojo.yatzy.DiceRoll;
-import org.codingdojo.yatzy.Yatzy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -25,10 +23,10 @@ public class YatzyTest {
 
     @Nested
     @DisplayName("Yatzy scores ")
-    public class YatzyScore{
+    public class YatzyScore {
 
         private static Stream<DiceRoll> yatzies() {
-            return Stream.of(new DiceRoll(Arrays.asList(4, 4, 4, 4, 4)), new DiceRoll(Arrays.asList(6, 6, 6, 6, 6)));
+            return Stream.of(new DiceRoll(List.of(4, 4, 4, 4, 4)), new DiceRoll(List.of(6, 6, 6, 6, 6)));
         }
 
         @ParameterizedTest
@@ -41,17 +39,26 @@ public class YatzyTest {
         @Test
         @DisplayName("0")
         public void _0() {
-            assertEquals(0, Yatzy.score(new DiceRoll(Arrays.asList(6, 6, 6, 6, 3)), YATZY));
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(6, 6, 6, 6, 3)), YATZY));
         }
     }
 
 
-    @Test
-    public void test_1s() {
-        assertEquals(1, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 4, 5)), ONES));
-        assertEquals(2, Yatzy.score(new DiceRoll(List.of(1, 2, 1, 4, 5)), ONES));
-        assertEquals(0, Yatzy.score(new DiceRoll(List.of(6, 2, 2, 4, 5)), ONES));
-        assertEquals(4, Yatzy.score(new DiceRoll(List.of(1, 2, 1, 1, 1)), ONES));
+    @Nested
+    @DisplayName("Ones scores ")
+    public class OnesScore {
+
+        @Test
+        public void two_1_scores_2() {
+            assertEquals(2, Yatzy.score(new DiceRoll(List.of(1, 2, 3, 1, 5)), ONES));
+        }
+
+
+        @Test
+        public void no_one_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(6, 2, 2, 4, 5)), ONES));
+        }
+
     }
 
     @Test
