@@ -15,7 +15,7 @@ public enum Score {
     FOUR_OF_A_KIND(new SomeOfAKindScorer(4)),
     SMALL_STRAIGHT(new AllButScorer(6)),
     LARGE_STRAIGHT(new AllButScorer(1)),
-    ;
+    FULL_HOUSE(new FullHouseScorer());
 
     private final Scorer scorer;
 

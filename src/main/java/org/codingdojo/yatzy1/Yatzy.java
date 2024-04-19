@@ -45,10 +45,7 @@ public class Yatzy {
     }
 
     public int fullHouse() {
-        Map<Integer, Long> frequencies = frequencies();
-        if(frequencies.size() !=2 || !frequencies.containsValue(3L))
-            return ZERO;
-        return sum();
+        return score(this, Score.FULL_HOUSE);
     }
 
 }
