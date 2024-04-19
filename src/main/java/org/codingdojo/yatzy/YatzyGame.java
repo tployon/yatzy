@@ -2,7 +2,7 @@ package org.codingdojo.yatzy;
 
 import org.codingdojo.yatzy.scorer.*;
 
-public class Yatzy {
+public class YatzyGame {
     public static Integer score(DiceRoll diceRoll, Score score) {
         return score.score(diceRoll);
     }
