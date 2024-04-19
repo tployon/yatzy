@@ -15,6 +15,6 @@ public class PairScorer implements Scorer {
             .stream()
             .max(Comparator.naturalOrder())
             .map(it -> it * 2)
-            .orElse(Yatzy.ZERO);
+            .orElse(Scorer.ZERO);
     }
 }

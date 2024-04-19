@@ -12,7 +12,7 @@ public class TwoPairsScorer implements Scorer {
     public Integer score(Yatzy yatzy) {
         List<Integer> pairs = yatzy.atLeast(2);
         if (pairs.size() != 2)
-            return Yatzy.ZERO;
+            return Scorer.ZERO;
 
         return pairs
             .stream()

@@ -9,6 +9,6 @@ public record SomeOfAKindScorer(int atLeastFrequency) implements Scorer {
             .stream()
             .findFirst()
             .map(it -> it * atLeastFrequency())
-            .orElse(Yatzy.ZERO);
+            .orElse(Scorer.ZERO);
     }
 }

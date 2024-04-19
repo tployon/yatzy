@@ -16,7 +16,7 @@ public record AllButScorer(int notAllowedDiceValue) implements Scorer {
             .filter(it -> !Objects.equals(it.getKey(), notAllowedDiceValue()))
             .count();
         if (count != 5)
-            return Yatzy.ZERO;
+            return Scorer.ZERO;
         return yatzy.sum();
     }
 }

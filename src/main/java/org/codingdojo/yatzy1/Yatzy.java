@@ -9,8 +9,6 @@ import static java.util.stream.Collectors.*;
 
 public class Yatzy {
 
-    public static final int ZERO = 0;
-
     private final List<Integer> dices;
 
     public Yatzy(List<Integer> dices) {

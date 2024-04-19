@@ -16,6 +16,6 @@ public class YatzyScorer implements Scorer {
             .filter(it -> it.getValue() == 5)
             .map(it -> YATZY)
             .findFirst()
-            .orElse(Yatzy.ZERO);
+            .orElse(Scorer.ZERO);
     }
 }
