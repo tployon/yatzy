@@ -147,11 +147,18 @@ public class YatzyTest {
         }
     }
 
-    @Test
-    public void two_Pair() {
-        assertEquals(16, Yatzy.score(new DiceRoll(List.of(3, 3, 5, 4, 5)), TWO_PAIRS));
-        assertEquals(16, Yatzy.score(new DiceRoll(List.of(3, 3, 5, 5, 5)), TWO_PAIRS));
-        assertEquals(0, Yatzy.score(new DiceRoll(List.of(3, 3, 1, 2, 5)), TWO_PAIRS));
+    @Nested
+    public class TwoPairsScore {
+
+        @Test
+        public void two_pairs_scores_pairs_sum() {
+            assertEquals(16, Yatzy.score(new DiceRoll(List.of(3, 3, 5, 5, 5)), TWO_PAIRS));
+        }
+
+        @Test
+        void one_pair_is_not_enough_to_score() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(3, 3, 1, 2, 5)), TWO_PAIRS));
+        }
     }
 
     @Test
