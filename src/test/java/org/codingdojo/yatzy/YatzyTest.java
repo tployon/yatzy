@@ -121,18 +121,30 @@ public class YatzyTest {
         public void three_sixes_scores_18() {
             assertEquals(18, Yatzy.score(new DiceRoll(List.of(6, 5, 6, 6, 5)), SIXES));
         }
+
         @Test
         public void no_six_scores_0() {
             assertEquals(0, Yatzy.score(new DiceRoll(List.of(1, 5, 2, 3, 5)), SIXES));
         }
     }
 
-    @Test
-    public void one_pair() {
-        assertEquals(6, Yatzy.score(new DiceRoll(List.of(3, 4, 3, 5, 6)), PAIR));
-        assertEquals(10, Yatzy.score(new DiceRoll(List.of(5, 3, 3, 3, 5)), PAIR));
-        assertEquals(12, Yatzy.score(new DiceRoll(List.of(5, 3, 6, 6, 5)), PAIR));
-        assertEquals(0, Yatzy.score(new DiceRoll(List.of(5, 3, 1, 6, 2)), PAIR));
+    @Nested
+    public class OnePairScore {
+
+        @Test
+        public void one_pair_scores_the_pair_sum() {
+            assertEquals(12, Yatzy.score(new DiceRoll(List.of(1, 3, 6, 6, 5)), PAIR));
+        }
+
+        @Test
+        public void greatest_pair_scores() {
+            assertEquals(10, Yatzy.score(new DiceRoll(List.of(5, 3, 3, 3, 5)), PAIR));
+        }
+
+        @Test
+        void no_pair_scores_0() {
+            assertEquals(0, Yatzy.score(new DiceRoll(List.of(5, 3, 1, 6, 2)), PAIR));
+        }
     }
 
     @Test
