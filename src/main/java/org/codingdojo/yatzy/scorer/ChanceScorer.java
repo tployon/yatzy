@@ -6,7 +6,7 @@ public class ChanceScorer implements Scorer {
     public ChanceScorer() {
     }
 
-    public Integer score(DiceRoll yatzy) {
-        return yatzy.sum();
+    public Integer score(DiceRoll diceRoll) {
+        return diceRoll.sum();
     }
 }

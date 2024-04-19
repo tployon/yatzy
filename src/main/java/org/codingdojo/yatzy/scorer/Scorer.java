@@ -5,5 +5,5 @@ import org.codingdojo.yatzy.DiceRoll;
 public interface Scorer {
     int ZERO = 0;
 
-    Integer score(DiceRoll yatzy);
+    Integer score(DiceRoll diceRoll);
 }

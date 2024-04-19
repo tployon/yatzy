@@ -8,8 +8,8 @@ public class YatzyScorer implements Scorer {
     public YatzyScorer() {
     }
 
-    public Integer score(DiceRoll yatzy) {
-        return yatzy.frequencies()
+    public Integer score(DiceRoll diceRoll) {
+        return diceRoll.frequencies()
             .entrySet()
             .stream()
             .filter(it -> it.getValue() == 5)

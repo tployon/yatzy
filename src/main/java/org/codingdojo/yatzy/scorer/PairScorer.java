@@ -8,8 +8,8 @@ public class PairScorer implements Scorer {
     public PairScorer() {
     }
 
-    public Integer score(DiceRoll yatzy) {
-        return yatzy
+    public Integer score(DiceRoll diceRoll) {
+        return diceRoll
             .atLeast(2)
             .stream()
             .max(Comparator.naturalOrder())

@@ -7,8 +7,8 @@ import java.util.Objects;
 public record AllButScorer(int notAllowedDiceValue) implements Scorer {
 
     @Override
-    public Integer score(DiceRoll yatzy) {
-        long count = yatzy.frequencies()
+    public Integer score(DiceRoll diceRoll) {
+        long count = diceRoll.frequencies()
             .entrySet()
             .stream()
             .filter(it -> it.getValue() == 1)
@@ -16,6 +16,6 @@ public record AllButScorer(int notAllowedDiceValue) implements Scorer {
             .count();
         if (count != 5)
             return Scorer.ZERO;
-        return yatzy.sum();
+        return diceRoll.sum();
     }
 }

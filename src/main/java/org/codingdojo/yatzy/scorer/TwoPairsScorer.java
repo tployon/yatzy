@@ -8,8 +8,8 @@ public class TwoPairsScorer implements Scorer {
     public TwoPairsScorer() {
     }
 
-    public Integer score(DiceRoll yatzy) {
-        List<Integer> pairs = yatzy.atLeast(2);
+    public Integer score(DiceRoll diceRoll) {
+        List<Integer> pairs = diceRoll.atLeast(2);
         if (pairs.size() != 2)
             return Scorer.ZERO;
 
