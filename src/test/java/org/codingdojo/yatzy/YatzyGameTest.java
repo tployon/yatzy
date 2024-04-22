@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.codingdojo.yatzy.YatzyGame.ScoreRaw.*;
+import static org.codingdojo.yatzy.YatzyGame.ScoreLine.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
