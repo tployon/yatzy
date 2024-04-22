@@ -8,12 +8,12 @@ public class YatzyGame {
     }
 
     public enum Score {
-        ONES(new ScorerNumber(1)),
-        TWOS(new ScorerNumber(2)),
-        THREES(new ScorerNumber(3)),
-        FOURS(new ScorerNumber(4)),
-        FIVES(new ScorerNumber(5)),
-        SIXES(new ScorerNumber(6)),
+        ONES(new NumberScorer(1)),
+        TWOS(new NumberScorer(2)),
+        THREES(new NumberScorer(3)),
+        FOURS(new NumberScorer(4)),
+        FIVES(new NumberScorer(5)),
+        SIXES(new NumberScorer(6)),
         CHANCE(new ChanceScorer()),
         YATZY(new YatzyScorer()),
         PAIR(new PairScorer()),
