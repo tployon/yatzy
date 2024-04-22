@@ -16,7 +16,7 @@ public class DiceRoll {
     public static DiceRoll from(List<Integer> dices) {
         if (dices == null ||
             dices.size() < 5 ||
-            dices.stream().anyMatch(it -> !VALID_DICES.contains(it))) throw new IllegalArgumentException("");
+            dices.stream().anyMatch(it -> !VALID_DICES.contains(it))) throw new IllegalArgumentException();
         return new DiceRoll(List.copyOf(dices));
     }
 
