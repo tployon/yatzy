@@ -3,15 +3,24 @@ package org.codingdojo.yatzy;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.*;
 
 public class DiceRoll {
 
+    private static final Set<Integer> VALID_DICES = Set.of(1, 2, 3, 4, 5, 6);
     private final List<Integer> dices;
 
-    public DiceRoll(List<Integer> dices) {
+    public static DiceRoll from(List<Integer> dices) {
+        if (dices == null ||
+            dices.size() < 5 ||
+            dices.stream().anyMatch(it -> !VALID_DICES.contains(it))) throw new IllegalArgumentException("");
+        return new DiceRoll(List.copyOf(dices));
+    }
+
+    private DiceRoll(List<Integer> dices) {
         this.dices = dices;
     }
 
@@ -39,7 +48,7 @@ public class DiceRoll {
 
     @Override
     public String toString() {
-        return "Dice Roll " +  dices ;
+        return "Dice Roll " + dices;
     }
 }
 
