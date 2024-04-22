@@ -3,11 +3,11 @@ package org.codingdojo.yatzy;
 import org.codingdojo.yatzy.scorer.*;
 
 public class YatzyGame {
-    public static Integer score(DiceRoll diceRoll, Score score) {
-        return score.score(diceRoll);
+    public static Integer score(DiceRoll diceRoll, ScoreRaw scoreRaw) {
+        return scoreRaw.score(diceRoll);
     }
 
-    public enum Score {
+    public enum ScoreRaw {
         ONES(new NumberScorer(1)),
         TWOS(new NumberScorer(2)),
         THREES(new NumberScorer(3)),
@@ -26,7 +26,7 @@ public class YatzyGame {
 
         private final Scorer scorer;
 
-        Score(Scorer scorer) {
+        ScoreRaw(Scorer scorer) {
             this.scorer = scorer;
         }
 
